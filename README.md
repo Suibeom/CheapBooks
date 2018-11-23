@@ -1,5 +1,5 @@
 # CheapBooks
-I wanted some time price data but camelcamelcamel doesn't give you .csv files. 
+I wanted some time price data to help figure out when I could snag some cheap math books, but camelcamelcamel doesn't give you .csv files. 
 
 This had two parts, one easy in R and infuriating in Julia, and one easy in Julia and infuriating in R.
 
