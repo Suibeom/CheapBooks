@@ -66,10 +66,13 @@ for(i in 1:80){
 #Now let's do the real deal: Using lags, fit a linear model to predict the next step.
 #We'll use five steps back.
 
-YFuncLags = cbind(YFunc[5:614],YFunc[4:613],YFunc[3:612],YFunc[2:611],YFunc[1:610])
-YTarg = YFunc[6:615]
+YFuncLags = cbind(YFunc[354:514],YFunc[353:513],YFunc[352:512],YFunc[351:511],YFunc[350:510])
+YTarg = YFunc[355:515]
 yts = lm(YTarg~YFuncLags)
 plot(YTarg,type="l")
 lines(yts$fitted.values,col="red")
 #Ahhhh. That's more like it!
-
+YFLt = rbind(replicate(100,c(1)), YFunc[515:614],YFunc[514:613],YFunc[513:612],YFunc[512:611],YFunc[511:610])
+YPreds = yts$coefficients %*% YFLt
+plot(YFunc[515:615],type="l")
+lines(t(YPreds),col="red")
